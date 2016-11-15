@@ -1,6 +1,11 @@
 #Pre-requisites - selenium installed , correct location to webdriver 
 
 path_to_driver = "C:\\Users\\Sahil\\Documents\\chromedriver"
+start = datetime.date(2016,9,25) #start date
+end = datetime.date(2016,9,28) #end date
+query = 'trump'
+toptweets=True
+num =100 #approx number of tweets required per day
 
 
 import os
@@ -48,12 +53,8 @@ def wrapperfetch(start,end,num,query,driver, file, toptweets):
 	
 
 driver = webdriver.Chrome(path_to_driver)
-start = datetime.date(2016,9,25) #start date
-end = datetime.date(2016,9,28) #end date
-query = 'trump'
-toptweets=True
-#this number is average .. can be lot more or lot less .. depending upon net speed 
-num =100 #number of tweets required per day.. fetch will be lesser depending upon various factors
+
+
 file = codecs.open("out.csv", "w+", "utf-8")
 
 wrapperfetch(start,end,num,query,driver, file, toptweets)
